@@ -1,5 +1,4 @@
-#FROM ghcr.io/pangenome/pggb:latest
-FROM UBUNTU
+FROM ghcr.io/pangenome/pggb:latest
 
 RUN apt update  -y
 
