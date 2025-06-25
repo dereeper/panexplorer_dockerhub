@@ -6,8 +6,6 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 
 RUN pip3 install biopython pandas seaborn xarray
 
-RUN conda install -c bioconda mashtree
-
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # minimap2
