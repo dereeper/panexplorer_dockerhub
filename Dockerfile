@@ -10,8 +10,7 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
-RUN cp -rf prokka/bin/* /usr/bin/
-RUN prokka --setupdb
+RUN cp -rf prokka /usr/bin/
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
@@ -31,4 +30,4 @@ RUN cd minigraph && make
 RUN cp -rf minigraph/minigraph /usr/bin/
 
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
