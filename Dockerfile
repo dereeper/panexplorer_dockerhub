@@ -8,13 +8,7 @@ RUN pip3 install biopython pandas seaborn xarray
 
 RUN pip3 install git+https://github.com/microbial-bioinformatics/prokka.git
 
-RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
-
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
-
-RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
-RUN tar -xzvf OrthoFinder.tar.gz
-RUN cp -rf OrthoFinder /usr/bin/
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
