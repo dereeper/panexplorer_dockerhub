@@ -9,8 +9,8 @@ RUN pip3 install biopython pandas seaborn xarray
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # prokka
-RUN git clone https://github.com/tseemann/prokka.git
-RUN cp -rf prokka /usr/bin/
+#RUN git clone https://github.com/tseemann/prokka.git
+#RUN cp -rf prokka /usr/bin/
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
@@ -30,4 +30,4 @@ RUN cd minigraph && make
 RUN cp -rf minigraph/minigraph /usr/bin/
 
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin"
