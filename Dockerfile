@@ -11,6 +11,7 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
 RUN cp -rf prokka /usr/bin/
+RUN /usr/bin/prokka/bin/prokka --setupdb
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
