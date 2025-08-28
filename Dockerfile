@@ -22,7 +22,7 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 #RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
-RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
+#RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
 #RUN tar -xzvf OrthoFinder.tar.gz
 #RUN cp -rf OrthoFinder /usr/bin/
 
@@ -54,7 +54,7 @@ RUN cp -rf minigraph/minigraph /usr/bin/
 #RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
-#RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
+RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
 #ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
 #RUN cp -rf PanExplorer_workflow /usr/local/bin
 #RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
