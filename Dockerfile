@@ -13,9 +13,9 @@ RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos=
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # nextflow
-RUN wget -qO- https://get.nextflow.io | bash
-RUN chmod 777 nextflow
-RUN cp nextflow /usr/local/bin/nextflow
+#RUN wget -qO- https://get.nextflow.io | bash
+#RUN chmod 777 nextflow
+#RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
 #RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
