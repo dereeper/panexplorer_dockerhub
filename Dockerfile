@@ -6,25 +6,25 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 
 # python packages
 RUN pip3 install biopython pandas seaborn xarray
-RUN pip install panacota
+#RUN pip install panacota
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # nextflow
-RUN wget -qO- https://get.nextflow.io | bash
-RUN chmod 777 nextflow
-RUN cp nextflow /usr/local/bin/nextflow
+#RUN wget -qO- https://get.nextflow.io | bash
+#RUN chmod 777 nextflow
+#RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
-RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
-RUN cp -rf bac-genomics-scripts /usr/local/bin
+#RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
+#RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
-RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
-RUN tar -xzvf OrthoFinder.tar.gz
-RUN cp -rf OrthoFinder /usr/bin/
+#RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
+#RUN tar -xzvf OrthoFinder.tar.gz
+#RUN cp -rf OrthoFinder /usr/bin/
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
@@ -62,24 +62,24 @@ RUN tar -xzvf Cog_LE.tar.gz
 RUN cp -rf Cog.* $PANEX_PATH/COG
 
 # PHYLIP
-RUN echo "#!/bin/bash" >/usr/bin/consense
-RUN echo "phylip consense $*" >>/usr/bin/consense
-RUN chmod 755 /usr/bin/consense
-RUN echo "#!/bin/bash" >/usr/bin/neighbor
-RUN echo "phylip neighbor $*" >>/usr/bin/neighbor
-RUN chmod 755 /usr/bin/neighbor
-RUN echo "#!/bin/bash" >/usr/bin/seqboot
-RUN echo "phylip seqboot $*" >>/usr/bin/seqboot
-RUN chmod 755 /usr/bin/seqboot
-RUN echo "#!/bin/bash" >/usr/bin/dnadist
-RUN echo "phylip dnadist $*" >>/usr/bin/dnadist
-RUN chmod 755 /usr/bin/dnadist
-RUN echo "#!/bin/bash" >/usr/bin/dnapars
-RUN echo "phylip dnapars $*" >>/usr/bin/dnapars
-RUN chmod 755 /usr/bin/dnapars
-RUN echo "#!/bin/bash" >/usr/bin/dnaml
-RUN echo "phylip dnaml $*" >>/usr/bin/dnaml
-RUN chmod 755 /usr/bin/dnaml
+#RUN echo "#!/bin/bash" >/usr/bin/consense
+#RUN echo "phylip consense $*" >>/usr/bin/consense
+#RUN chmod 755 /usr/bin/consense
+#RUN echo "#!/bin/bash" >/usr/bin/neighbor
+#RUN echo "phylip neighbor $*" >>/usr/bin/neighbor
+#RUN chmod 755 /usr/bin/neighbor
+#RUN echo "#!/bin/bash" >/usr/bin/seqboot
+#RUN echo "phylip seqboot $*" >>/usr/bin/seqboot
+#RUN chmod 755 /usr/bin/seqboot
+#RUN echo "#!/bin/bash" >/usr/bin/dnadist
+#RUN echo "phylip dnadist $*" >>/usr/bin/dnadist
+#RUN chmod 755 /usr/bin/dnadist
+#RUN echo "#!/bin/bash" >/usr/bin/dnapars
+#RUN echo "phylip dnapars $*" >>/usr/bin/dnapars
+#RUN chmod 755 /usr/bin/dnapars
+#RUN echo "#!/bin/bash" >/usr/bin/dnaml
+#RUN echo "phylip dnaml $*" >>/usr/bin/dnaml
+#RUN chmod 755 /usr/bin/dnaml
 
 
 ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
