@@ -54,12 +54,12 @@ RUN cp -rf minigraph/minigraph /usr/bin/
 #RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
-RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
-ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
-RUN cp -rf PanExplorer_workflow /usr/local/bin
-RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
-RUN tar -xzvf Cog_LE.tar.gz
-RUN cp -rf Cog.* $PANEX_PATH/COG
+#RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
+#ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
+#RUN cp -rf PanExplorer_workflow /usr/local/bin
+#RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
+#RUN tar -xzvf Cog_LE.tar.gz
+#RUN cp -rf Cog.* $PANEX_PATH/COG
 
 # PHYLIP
 #RUN echo "#!/bin/bash" >/usr/bin/consense
