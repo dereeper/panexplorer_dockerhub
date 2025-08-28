@@ -9,7 +9,7 @@ RUN pip3 install biopython pandas seaborn xarray
 #RUN pip install panacota
 
 # R packages
-RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
+#RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # nextflow
@@ -49,9 +49,9 @@ RUN cd minigraph && make
 RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
-RUN tar xvfz mmseqs-linux-sse41.tar.gz
-RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
+#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+#RUN tar xvfz mmseqs-linux-sse41.tar.gz
+#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
 RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
