@@ -49,12 +49,12 @@ RUN cd minigraph && make
 RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
-RUN tar xvfz mmseqs-linux-sse41.tar.gz
-RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
+#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+#RUN tar xvfz mmseqs-linux-sse41.tar.gz
+#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
-#RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
+RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
 #ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
 #RUN cp -rf PanExplorer_workflow /usr/local/bin
 #RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
