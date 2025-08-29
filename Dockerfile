@@ -23,8 +23,8 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
-#RUN tar -xzvf OrthoFinder.tar.gz
-#RUN cp -rf OrthoFinder /usr/bin/
+RUN tar -xzvf OrthoFinder.tar.gz
+RUN cp -rf OrthoFinder /usr/bin/
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
