@@ -69,15 +69,15 @@ RUN cp -rf PanExplorer_workflow /usr/local/bin
 #RUN echo "#!/bin/bash" >/usr/bin/consense
 #RUN echo "phylip consense $*" >>/usr/bin/consense
 #RUN chmod 755 /usr/bin/consense
-#RUN echo "#!/bin/bash" >/usr/bin/neighbor
-#RUN echo "phylip neighbor $*" >>/usr/bin/neighbor
+RUN echo "#!/bin/bash" >/usr/bin/neighbor
+RUN echo "phylip neighbor $*" >>/usr/bin/neighbor
 #RUN chmod 755 /usr/bin/neighbor
 #RUN echo "#!/bin/bash" >/usr/bin/seqboot
 #RUN echo "phylip seqboot $*" >>/usr/bin/seqboot
 #RUN chmod 755 /usr/bin/seqboot
 #RUN echo "#!/bin/bash" >/usr/bin/dnadist
-#RUN echo "phylip dnadist $*" >>/usr/bin/dnadist
-#RUN chmod 755 /usr/bin/dnadist
+RUN echo "phylip dnadist $*" >>/usr/bin/dnadist
+RUN chmod 755 /usr/bin/dnadist
 #RUN echo "#!/bin/bash" >/usr/bin/dnapars
 #RUN echo "phylip dnapars $*" >>/usr/bin/dnapars
 #RUN chmod 755 /usr/bin/dnapars
