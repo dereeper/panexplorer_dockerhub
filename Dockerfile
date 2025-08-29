@@ -36,22 +36,10 @@ RUN git clone https://github.com/lh3/minimap2
 RUN cd minimap2 && make
 RUN cp -rf minimap2/minimap2 /usr/bin/
 
+# NCBI datasets
 RUN curl -o datasets 'https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets'
 RUN chmod +x datasets
 RUN cp -rf datasets /usr/bin/
-
-RUN git clone https://github.com/lh3/gfatools
-RUN cd gfatools && make
-RUN cp -rf gfatools/gfatools /usr/bin/
-
-RUN git clone https://github.com/lh3/minigraph
-RUN cd minigraph && make
-RUN cp -rf minigraph/minigraph /usr/bin/
-
-# mmseqs
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
-#RUN tar xvfz mmseqs-linux-sse41.tar.gz
-#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
 RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
@@ -60,6 +48,23 @@ RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
 #RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
 #RUN tar -xzvf Cog_LE.tar.gz
 #RUN cp -rf Cog.* $PANEX_PATH/COG
+
+# gfatools
+#RUN git clone https://github.com/lh3/gfatools
+#RUN cd gfatools && make
+#RUN cp -rf gfatools/gfatools /usr/bin/
+
+# minigraph
+#RUN git clone https://github.com/lh3/minigraph
+#RUN cd minigraph && make
+#RUN cp -rf minigraph/minigraph /usr/bin/
+
+# mmseqs
+#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+#RUN tar xvfz mmseqs-linux-sse41.tar.gz
+#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
+
+
 
 # PHYLIP
 #RUN echo "#!/bin/bash" >/usr/bin/consense
