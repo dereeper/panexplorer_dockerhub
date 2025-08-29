@@ -88,4 +88,4 @@ RUN tar -xzvf Cog_LE.tar.gz
 
 ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
-RUN cp -rf Cog.* $PANEX_PATH/COG
+#RUN cp -rf Cog.* $PANEX_PATH/COG
