@@ -49,9 +49,9 @@ RUN cd minigraph && make
 RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
-#RUN tar xvfz mmseqs-linux-sse41.tar.gz
-#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
+RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+RUN tar xvfz mmseqs-linux-sse41.tar.gz
+RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
 #RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
