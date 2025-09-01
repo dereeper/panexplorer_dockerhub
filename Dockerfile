@@ -18,7 +18,7 @@ RUN chmod 777 nextflow
 RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
-RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
+#RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
 #RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
