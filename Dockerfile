@@ -58,8 +58,8 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
-#RUN tar xvfz mmseqs-linux-sse41.tar.gz
+RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+RUN tar xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
 #RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 
@@ -85,5 +85,5 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN chmod 755 /usr/bin/dnaml
 
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin:/usr/bin/mmseqs/bin/mmseqs"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
