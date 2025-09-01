@@ -58,7 +58,7 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
+RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz --no-check-certificate
 #RUN tar xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
 #RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
