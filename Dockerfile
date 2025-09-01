@@ -23,8 +23,8 @@ RUN cp nextflow /usr/local/bin/nextflow
 
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
-RUN tar -xzvf OrthoFinder.tar.gz
-#RUN cp -rf OrthoFinder /usr/bin/
+RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
+#RUN cp -rf OrthoFinder 
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
