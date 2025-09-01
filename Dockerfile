@@ -24,7 +24,6 @@ RUN cp nextflow /usr/local/bin/nextflow
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
-#RUN cp -rf OrthoFinder 
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
@@ -45,7 +44,7 @@ RUN cp -rf datasets /usr/bin/
 RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
 RUN cp -rf PanExplorer_workflow /usr/local/bin
 RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
-RUN tar -xzvf Cog_LE.tar.gz
+RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 
 
 # gfatools
@@ -88,4 +87,3 @@ RUN tar -xzvf Cog_LE.tar.gz
 
 ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
-#RUN cp -rf Cog.* $PANEX_PATH/COG
