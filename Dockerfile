@@ -85,5 +85,5 @@ RUN wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz; tar xvfz mmseqs-lin
 #RUN chmod 755 /usr/bin/dnaml
 
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin:/usr/bin/mmseqs/bin/mmseqs"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
