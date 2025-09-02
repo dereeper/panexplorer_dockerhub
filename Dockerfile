@@ -22,7 +22,7 @@ RUN cp nextflow /usr/local/bin/nextflow
 #RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
-RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz
+RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
 
 # prokka
@@ -58,7 +58,7 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
 # mmseqs
-RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
+#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 #RUN wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz; tar xvfz mmseqs-linux-avx2.tar.gz;
 #RUN tar xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
 #RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
