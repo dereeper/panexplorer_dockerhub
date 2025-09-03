@@ -27,9 +27,9 @@ RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
 RUN tar -xzvf mmseqs-linux-sse41.tar.gz -C /usr/bin/
 
 # prokka
-RUN git clone https://github.com/tseemann/prokka.git
-RUN cp -rf prokka /usr/bin/
-RUN /usr/bin/prokka/bin/prokka --setupdb
+#RUN git clone https://github.com/tseemann/prokka.git
+#RUN cp -rf prokka /usr/bin/
+#RUN /usr/bin/prokka/bin/prokka --setupdb
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
