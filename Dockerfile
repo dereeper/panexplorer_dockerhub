@@ -19,7 +19,7 @@ RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
 RUN git clone https://github.com/aleimba/bac-genomics-scripts.git
-RUN cp -rf bac-genomics-scripts /usr/local/bin
+#RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
