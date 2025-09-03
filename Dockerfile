@@ -24,7 +24,7 @@ RUN cp nextflow /usr/local/bin/nextflow
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
-RUN tar -xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
+#RUN tar -xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
 
 # prokka
 RUN git clone https://github.com/tseemann/prokka.git
