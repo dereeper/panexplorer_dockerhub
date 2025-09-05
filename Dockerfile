@@ -81,5 +81,5 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN chmod 755 /usr/bin/dnaml
 
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/prokka/bin"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin/mmseqs"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
