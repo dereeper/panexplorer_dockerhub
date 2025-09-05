@@ -19,17 +19,11 @@ RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
 RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
-#RUN cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
 RUN tar -xzvf mmseqs-linux-sse41.tar.gz -C /usr/bin/
-
-# prokka
-#RUN git clone https://github.com/tseemann/prokka.git
-#RUN cp -rf prokka /usr/bin/
-#RUN /usr/bin/prokka/bin/prokka --setupdb
 
 # minimap2
 RUN git clone https://github.com/lh3/minimap2
@@ -39,7 +33,7 @@ RUN cp -rf minimap2/minimap2 /usr/bin/
 # NCBI datasets
 RUN curl -o datasets 'https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets'
 RUN chmod +x datasets
-RUN cp -rf datasets mmseqs/bin/mmseqs /usr/bin/
+RUN cp -rf datasets /usr/bin/
 
 # PanExplorer workflow
 RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
