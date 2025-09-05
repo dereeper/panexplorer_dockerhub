@@ -39,7 +39,7 @@ RUN cp -rf minimap2/minimap2 /usr/bin/
 # NCBI datasets
 RUN curl -o datasets 'https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets'
 RUN chmod +x datasets
-RUN cp -rf datasets /usr/bin/
+RUN cp -rf datasets mmseqs/bin/mmseqs /usr/bin/
 
 # PanExplorer workflow
 RUN git clone https://github.com/SouthGreenPlatform/PanExplorer_workflow.git
@@ -62,7 +62,7 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 #RUN wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz; tar xvfz mmseqs-linux-avx2.tar.gz;
 #RUN tar xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
-RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
+#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 
 
