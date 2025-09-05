@@ -12,6 +12,13 @@ RUN pip install panacota
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
+#RUN git clone https://github.com/pangenome/pggb.git
+RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
+#RUN cp pggb/pggb /usr/local/bin/pggb # buildkit
+#RUN chmod 777 /usr/local/bin/pggb # buildkit
+#RUN cp pggb/partition-before-pggb /usr/local/bin/partition-before-pggb # buildkit
+#RUN chmod a+rx /usr/local/bin/partition-before-pggb # buildkit
+
 # nextflow
 RUN wget -qO- https://get.nextflow.io | bash
 RUN chmod 777 nextflow
