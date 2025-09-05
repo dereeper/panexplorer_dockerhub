@@ -20,7 +20,7 @@ RUN cp nextflow /usr/local/bin/nextflow
 # BAC genomics
 RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
 
-# orthofinder
+# orthofinder and mmseqs
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
 RUN tar -xzvf mmseqs-linux-sse41.tar.gz -C /usr/bin/
@@ -52,34 +52,7 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cd minigraph && make
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
-# mmseqs
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
-#RUN wget https://mmseqs.com/latest/mmseqs-linux-avx2.tar.gz; tar xvfz mmseqs-linux-avx2.tar.gz;
-#RUN tar xvfz mmseqs-linux-sse41.tar.gz -C /usr/bin/
-#RUN cp -rf mmseqs/bin/mmseqs /usr/bin/
 
 
-
-# PHYLIP
-#RUN echo "#!/bin/bash" >/usr/bin/consense
-#RUN echo "phylip consense $*" >>/usr/bin/consense
-#RUN chmod 755 /usr/bin/consense
-#RUN echo "#!/bin/bash" >/usr/bin/neighbor
-#RUN echo "phylip neighbor $*" >>/usr/bin/neighbor
-#RUN chmod 755 /usr/bin/neighbor
-#RUN echo "#!/bin/bash" >/usr/bin/seqboot
-#RUN echo "phylip seqboot $*" >>/usr/bin/seqboot
-#RUN chmod 755 /usr/bin/seqboot
-#RUN echo "#!/bin/bash" >/usr/bin/dnadist
-#RUN echo "phylip dnadist $*" >>/usr/bin/dnadist
-#RUN chmod 755 /usr/bin/dnadist
-#RUN echo "#!/bin/bash" >/usr/bin/dnapars
-#RUN echo "phylip dnapars $*" >>/usr/bin/dnapars
-#RUN chmod 755 /usr/bin/dnapars
-#RUN echo "#!/bin/bash" >/usr/bin/dnaml
-#RUN echo "phylip dnaml $*" >>/usr/bin/dnaml
-#RUN chmod 755 /usr/bin/dnaml
-
-
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin/mmseqs"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
