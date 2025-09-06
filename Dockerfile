@@ -16,9 +16,9 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
 
 # nextflow
-RUN wget -qO- https://get.nextflow.io | bash
-RUN chmod 777 nextflow
-RUN cp nextflow /usr/local/bin/nextflow
+#RUN wget -qO- https://get.nextflow.io | bash
+#RUN chmod 777 nextflow
+#RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
 RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
