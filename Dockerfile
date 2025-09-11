@@ -44,7 +44,6 @@ RUN cp -rf PanExplorer_workflow /usr/local/bin
 RUN wget https://ftp.ncbi.nlm.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
 RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 
-
 # gfatools
 #RUN git clone https://github.com/lh3/gfatools
 #RUN cd gfatools && make
