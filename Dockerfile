@@ -54,7 +54,5 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cd minigraph && make
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
-
-
 ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
