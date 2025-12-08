@@ -48,6 +48,7 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN git clone https://github.com/lh3/gfatools
 #RUN cd gfatools && make
 #RUN cp -rf gfatools/gfatools /usr/bin/
+
 # minigraph
 #RUN git clone https://github.com/lh3/minigraph
 #RUN cd minigraph && make
