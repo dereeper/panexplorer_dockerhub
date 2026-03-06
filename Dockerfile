@@ -5,12 +5,22 @@ RUN apt update  -y
 RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran-optparse r-cran-dendextend r-cran-gplots r-bioc-ctc r-cran-ape ncbi-blast+ ncbi-blast+-legacy roary python3 cd-hit mcl phylip python3-pip libstatistics-linefit-perl bioperl libstatistics-distributions-perl pdf2svg r-cran-heatmaply python3-numpy python3-plotly autoconf libgsl-dev fastani python3-virtualenv cmake samtools curl bzip2 make g++-11 pybind11-dev libbz2-dev bc libatomic-ops-dev autoconf libgsl-dev zlib1g-dev libzstd-dev libjemalloc-dev libhts-dev build-essential pkg-config time pigz bcftools libcairo2-dev unzip parallel circos gffread trf scoary snakemake
 
 # python packages
-RUN pip3 install biopython pandas seaborn xarray bakta
+RUN pip3 install biopython pandas seaborn xarray
 RUN pip install panacota
 
 RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
        | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba \
     && chmod +x /usr/local/bin/micromamba
+
+ENV MAMBA_ROOT_PREFIX=/opt/conda
+RUN micromamba create -y -n bakta_env -c conda-forge -c bioconda \
+    bakta \
+    amrfinder \
+    diamond \
+    infernal \
+    aragorn \
+    trnascan-se \
+    pyhmmer
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
