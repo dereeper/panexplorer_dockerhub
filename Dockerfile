@@ -13,9 +13,9 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
     && chmod +x /usr/local/bin/micromamba
 
 ENV MAMBA_ROOT_PREFIX=/opt/conda
-RUN micromamba create -y -n bakta_env -c conda-forge -c bioconda \
-    bakta \
-    amrfinder
+
+RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
+    vg=1.70.0
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
