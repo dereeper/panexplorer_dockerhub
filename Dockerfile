@@ -15,7 +15,11 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
 ENV MAMBA_ROOT_PREFIX=/opt/conda
 
 RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
-    amrfinder
+    bakta
+
+RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz
+&& tar -xzf amrfinder_binaries_v4.2.7.tar.gz \
+    && mv amrfinder /usr/local/bin/ \
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
