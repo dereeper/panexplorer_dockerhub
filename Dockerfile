@@ -15,7 +15,6 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
 ENV MAMBA_ROOT_PREFIX=/opt/conda
 
 RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
-    bakta \
     amrfinder
 
 # R packages
