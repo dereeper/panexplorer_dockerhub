@@ -16,8 +16,8 @@ ENV MAMBA_ROOT_PREFIX=/opt/conda
 
 RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
     bakta \
-    diamond \
-    infernal 
+    diamond 
+#    infernal 
 
 #RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz \
 #&& tar -xzf amrfinder_binaries_v4.2.7.tar.gz
@@ -35,7 +35,7 @@ RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
 #RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
-RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
+#RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder and mmseqs
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
