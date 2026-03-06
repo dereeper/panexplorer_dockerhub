@@ -8,6 +8,11 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 RUN pip3 install biopython pandas seaborn xarray bakta
 RUN pip install panacota
 
+# AMRfinder for bakta
+RUN wget https://github.com/ncbi/amr/releases/latest/download/amrfinder_linux.tar.gz \
+    && tar -xzf amrfinder_linux.tar.gz \
+    && mv amrfinder*/amrfinder /usr/local/bin/
+
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
