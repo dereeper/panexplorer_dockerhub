@@ -15,9 +15,6 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
 ENV MAMBA_ROOT_PREFIX=/opt/conda
 RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta 
 
-#RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz \
-#&& tar -xzf amrfinder_binaries_v4.2.7.tar.gz
-
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
@@ -31,7 +28,7 @@ RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
 #RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
-#RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
+RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder and mmseqs
 RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
