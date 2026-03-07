@@ -13,11 +13,7 @@ RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
     && chmod +x /usr/local/bin/micromamba
 
 ENV MAMBA_ROOT_PREFIX=/opt/conda
-
-#RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
-#    bakta \
-#    diamond 
-#    infernal 
+RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta
 
 RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz \
 && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
