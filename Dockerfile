@@ -8,6 +8,8 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 RUN pip3 install biopython pandas seaborn xarray
 RUN pip install panacota bakta
 
+RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
+
 #RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest   | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba && chmod +x /usr/local/bin/micromamba
 
 # ENV MAMBA_ROOT_PREFIX=/opt/conda
