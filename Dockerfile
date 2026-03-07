@@ -6,12 +6,12 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 
 # python packages
 RUN pip3 install biopython pandas seaborn xarray
-RUN pip install panacota
+RUN pip install panacota bakta
 
-RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest   | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba && chmod +x /usr/local/bin/micromamba
+#RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest   | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba && chmod +x /usr/local/bin/micromamba
 
-ENV MAMBA_ROOT_PREFIX=/opt/conda
-RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta 
+# ENV MAMBA_ROOT_PREFIX=/opt/conda
+# RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta 
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
