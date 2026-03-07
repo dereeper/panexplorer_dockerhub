@@ -8,13 +8,10 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 RUN pip3 install biopython pandas seaborn xarray
 RUN pip install panacota
 
-RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
-       | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba \
-    && chmod +x /usr/local/bin/micromamba
+RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest   | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba && chmod +x /usr/local/bin/micromamba
 
 ENV MAMBA_ROOT_PREFIX=/opt/conda
-RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
-bakta 
+RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta 
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
@@ -22,11 +19,6 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 
 # modify pggb which call
 RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
-
-# nextflow
-#RUN wget -qO- https://get.nextflow.io | bash
-#RUN chmod 777 nextflow
-#RUN cp nextflow /usr/local/bin/nextflow
 
 # BAC genomics
 RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
