@@ -10,10 +10,7 @@ RUN pip install panacota bakta
 
 RUN mkdir /amrfinder && cd /amrfinder && wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
 
-#RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest   | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba && chmod +x /usr/local/bin/micromamba
-
-# ENV MAMBA_ROOT_PREFIX=/opt/conda
-# RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda bakta 
+ 
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
