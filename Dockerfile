@@ -10,8 +10,6 @@ RUN pip install panacota bakta
 
 RUN mkdir /amrfinder && cd /amrfinder && wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
 
- 
-
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
 RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
