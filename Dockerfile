@@ -6,9 +6,9 @@ RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran
 
 # python packages
 RUN pip3 install biopython pandas seaborn xarray
-RUN pip install panacota bakta
+RUN pip install panacota
 
-RUN mkdir /amrfinder && cd /amrfinder && wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
+#RUN mkdir /amrfinder && cd /amrfinder && wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
