@@ -30,6 +30,7 @@ RUN git clone https://github.com/lh3/minimap2
 RUN cd minimap2 && make
 RUN cp -rf minimap2/minimap2 /usr/bin/
 
+
 # NCBI datasets
 RUN curl -o datasets 'https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets'
 RUN chmod +x datasets
