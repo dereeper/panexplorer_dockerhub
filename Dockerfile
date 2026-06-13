@@ -2,13 +2,25 @@ FROM ghcr.io/pangenome/pggb:latest
 
 RUN apt update  -y
 
-RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran-optparse r-cran-dendextend r-cran-gplots r-bioc-ctc r-cran-ape ncbi-blast+ ncbi-blast+-legacy roary python3 cd-hit mcl phylip python3-pip libstatistics-linefit-perl bioperl libstatistics-distributions-perl pdf2svg r-cran-heatmaply python3-numpy python3-plotly autoconf libgsl-dev fastani python3-virtualenv cmake samtools curl bzip2 make g++-11 pybind11-dev libbz2-dev bc libatomic-ops-dev autoconf libgsl-dev zlib1g-dev libzstd-dev libjemalloc-dev libhts-dev build-essential pkg-config time pigz bcftools libcairo2-dev unzip parallel circos gffread trf scoary snakemake hmmer
+RUN apt-get install -y bash wget r-base-core r-cran-svglite r-cran-upsetr r-cran-optparse r-cran-dendextend r-cran-gplots r-bioc-ctc r-cran-ape ncbi-blast+ ncbi-blast+-legacy roary python3 cd-hit mcl phylip python3-pip libstatistics-linefit-perl bioperl libstatistics-distributions-perl pdf2svg r-cran-heatmaply python3-numpy python3-plotly autoconf libgsl-dev fastani python3-virtualenv cmake samtools curl bzip2 make g++-11 pybind11-dev libbz2-dev bc libatomic-ops-dev autoconf libgsl-dev zlib1g-dev libzstd-dev libjemalloc-dev libhts-dev build-essential pkg-config time pigz bcftools libcairo2-dev unzip parallel circos gffread trf scoary snakemake
 
 # python packages
 RUN pip3 install biopython pandas seaborn xarray
-RUN pip install panacota bakta
+RUN pip install panacota
 
-RUN mkdir /amrfinder && cd /amrfinder && wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz && tar -xzf amrfinder_binaries_v4.2.7.tar.gz
+RUN curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest \
+       | tar -xvj -C /usr/local/bin/ --strip-components=1 bin/micromamba \
+    && chmod +x /usr/local/bin/micromamba
+
+ENV MAMBA_ROOT_PREFIX=/opt/conda
+
+#RUN /usr/local/bin/micromamba install -y -n base -c conda-forge -c bioconda \
+#    bakta \
+#    diamond
+#    infernal
+
+#RUN wget https://github.com/ncbi/amr/releases/download/amrfinder_v4.2.7/amrfinder_binaries_v4.2.7.tar.gz \
+#&& tar -xzf amrfinder_binaries_v4.2.7.tar.gz
 
 # R packages
 RUN R --quiet --slave -e 'install.packages("micropan", version = "1.3.0", repos="https://cloud.r-project.org/")'
@@ -17,11 +29,16 @@ RUN R --quiet --slave -e 'devtools::install_github("KlausVigo/phangorn")'
 # modify pggb which call
 RUN sed -i "s/which time/\/usr\/bin\/which time/g" /usr/local/bin/pggb
 
+# nextflow
+#RUN wget -qO- https://get.nextflow.io | bash
+#RUN chmod 777 nextflow
+#RUN cp nextflow /usr/local/bin/nextflow
+
 # BAC genomics
-RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
+#RUN git clone https://github.com/aleimba/bac-genomics-scripts.git ; cp -rf bac-genomics-scripts /usr/local/bin
 
 # orthofinder and mmseqs
-RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://mmseqs.com/latest/mmseqs-linux-sse41.tar.gz
+RUN wget https://github.com/davidemms/OrthoFinder/releases/latest/download/OrthoFinder.tar.gz https://github.com/soedinglab/MMseqs2/releases/download/18-8cc5c/mmseqs-linux-sse41.tar.gz
 RUN tar -xzvf OrthoFinder.tar.gz -C /usr/bin/
 RUN tar -xzvf mmseqs-linux-sse41.tar.gz -C /usr/bin/
 
@@ -29,7 +46,6 @@ RUN tar -xzvf mmseqs-linux-sse41.tar.gz -C /usr/bin/
 RUN git clone https://github.com/lh3/minimap2
 RUN cd minimap2 && make
 RUN cp -rf minimap2/minimap2 /usr/bin/
-
 
 # NCBI datasets
 RUN curl -o datasets 'https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets'
@@ -51,5 +67,5 @@ RUN tar -xzvf Cog_LE.tar.gz -C /usr/local/bin/PanExplorer_workflow/COG
 #RUN cd minigraph && make
 #RUN cp -rf minigraph/minigraph /usr/bin/
 
-ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin:/amrfinder"
+ENV PATH="$PATH:/usr/bin/OrthoFinder:/usr/bin/OrthoFinder/bin:/usr/bin/mmseqs/bin"
 ENV PANEX_PATH=/usr/local/bin/PanExplorer_workflow
